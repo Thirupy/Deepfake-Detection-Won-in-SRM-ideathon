@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection System - Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .upload-form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .upload-form input[type="file"] {
+            display: none; /* Hide the default file input */
+        }
+        .upload-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .upload-btn:hover {
+            background-color: #0056b3;
+        }
+        .image-preview {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .image-preview img:hover {
+            transform: scale(1.1);
+        }
+        .prediction-result {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745; /* Green color for positive prediction */
+        }
+        .error-message {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #dc3545; /* Red color for error messages */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            Deepfake Detection System - Prediction
+        </header>
+        <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+            <label for="file-upload" class="upload-btn">Choose Image</label>
+            <input type="file" id="file-upload" name="file" accept=".jpg, .jpeg, .png" required>
+            <input type="submit" class="upload-btn" value="Upload">
+        </form>
+        <div class="image-preview">
+            {% if uploaded_image %}
+            <img src="{{uploaded_image}}" alt="Uploaded Image" width="400" height="300">
+            {% endif %}
+        </div>
+        {% if prediction_result %}
+        <div class="prediction-result">
+            {{ prediction_result }}
+        </div>
+        {% endif %}
+        {% if error_message %}
+        <div class="error-message">
+            {{ error_message }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
