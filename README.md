@@ -12,10 +12,10 @@ This repository contains the code and resources for a deepfake detection system.
 ## Snapshots
 
 ### Home Page
-![Home Page](images/home.png)
+![Home Page](images/Home.png)
 
 ### Detection Result
-![Detection Result](images/prediction.png)
+![Detection Result](images/Prediction.png)
 
 ## Table of Contents
 
@@ -62,6 +62,7 @@ The dataset used for training is generated from Metalabs videos. It consists of 
 ## Model
 
 The model is a neural network designed to classify images as deepfake or real. You can Download Trained Model [here](https://drive.google.com/drive/folders/1UNiuP993IBbD1ueloVGRiLCdpySCqyg8?usp=drive_link)
+Note:Create a separate folder 'model' to use it
 
 ## Web Interface
 
